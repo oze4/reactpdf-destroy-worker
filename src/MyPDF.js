@@ -4,19 +4,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const PDF_URL = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
 
-
 export default class MyPDF extends Component {
-  componentWillUnmount = event => {
-    console.log('unmounted');
-  }
-  
-  onDocumentLoadSuccess = pdf => {
-    console.log(pdf);
-  }
-
   render() {
     return (
-      <Document file={PDF_URL} onLoadSuccess={this.onDocumentLoadSuccess}>
+      <Document file={PDF_URL}>
         <Page pageNumber={1} />
       </Document>
     );
