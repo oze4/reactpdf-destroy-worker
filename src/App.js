@@ -30,17 +30,15 @@ class App extends React.Component {
         <button className={btnClass} onClick={this.handleClick}>
           {show ? 'Destroy Worker' : 'Show PDF'}
         </button>
-        <div>
-          <ul>
-            {
-              this.state.message &&
-              <>
-                <li className={liClass}>{this.state.message}</li>
-                <li><i>You may need to refresh your browsers task manager to see these changes!</i></li>
-              </>
-            }
-          </ul>
-        </div>
+        <ul>
+          {
+            this.state.message &&
+            <>
+              <li className={liClass}>{this.state.message}</li>
+              <li><i>You may need to refresh your browsers task manager to see these changes!</i></li>
+            </>
+          }
+        </ul>
         {show ? <MyPDF /> : ""}
       </div>
     );
