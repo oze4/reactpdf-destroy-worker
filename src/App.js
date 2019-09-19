@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MyPDF from './MyPDF';
+import './styles.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    show: false,
+    message: "",
+  }
+
+  handleClick = event => {
+    let s = this.state.show;
+    let m = s
+      ? "Worker has been destroyed - the worker in your browsers task manager should now be gone"
+      : "Worker has been created - you should be able to see a worker in your browsers task manager";
+
+    this.setState({
+      show: !s,
+      message: m,
+    });
+  }
+
+  render() {
+    const { show } = this.state;
+    const btnClass = show ? "btn r" : "btn g";
+    const liClass = show ? "gt" : "rt";
+
+    return (
+      <div>
+        <button className={btnClass} onClick={this.handleClick}>
+          {show ? 'Destroy Worker' : 'Show PDF'}
+        </button>
+        <div className="messages">
+          <ul>
+            {
+              this.state.message &&
+              <>
+                <li className={liClass}>{this.state.message}</li>
+                <li><i>You may need to refresh your browsers task manager to see these changes!</i></li>
+              </>
+            }
+          </ul>
+        </div>
+        {this.state.show ? <MyPDF /> : ""}
+      </div>
+    );
+  }
 }
 
 export default App;
