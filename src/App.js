@@ -41,7 +41,7 @@ class App extends React.Component {
             }
           </ul>
         </div>
-        {this.state.show ? <MyPDF /> : ""}
+        {show ? <MyPDF /> : ""}
       </div>
     );
   }
