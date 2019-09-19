@@ -30,7 +30,7 @@ class App extends React.Component {
         <button className={btnClass} onClick={this.handleClick}>
           {show ? 'Destroy Worker' : 'Show PDF'}
         </button>
-        <div className="messages">
+        <div>
           <ul>
             {
               this.state.message &&
