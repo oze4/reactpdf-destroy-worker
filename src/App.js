@@ -27,6 +27,9 @@ class App extends React.Component {
 
     return (
       <div>
+        <p>
+          <a href="https://github.com/oze4/reactpdf-destroy-worker" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+        </p>
         <button className={btnClass} onClick={this.handleClick}>
           {show ? 'Destroy Worker' : 'Show PDF'}
         </button>
